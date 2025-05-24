@@ -11,7 +11,7 @@
     body {
       font-family: 'IBM Plex Mono', monospace;
       background-color: #ffffff;
-      color: #333333;
+      color: #000000;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -25,9 +25,10 @@
     }
 
     .intro {
-      font-weight: 900;
+      font-size: 1.1rem;
+      font-weight:500;
       margin-bottom: 4rem;
-      color: #666;
+      color: #000000;
     }
 
     form {
@@ -56,7 +57,7 @@
       margin-top: 1rem;
       padding: 1rem;
       background-color: transparent;
-      color: #888;
+      color: #000000;
       border: none;
       font-family: inherit;
       font-size: 1rem;
@@ -84,7 +85,7 @@
       position: absolute;
       max-width: 250px;
       font-size: 0.9rem;
-      color: #666;
+      color: #000000;
       opacity: 0;
       transition: opacity 2s ease;
       padding: 0.5em 1em;
@@ -108,7 +109,7 @@
       padding: 3rem;
       display: none;
       margin-bottom: 2rem;
-      color: #666;
+      color: #000000;
       font-size: 1.1rem;
       opacity: 0;
       transition: opacity 0.8s cubic-bezier(.4,0,.2,1);
@@ -124,11 +125,11 @@
 <body>
 
   <div class="intro">
-    <p>Leave here a memory, a feeling, a fragment<br>of your story.</p>
+    <p>Leave here a memory, a feeling,<br>a fragment of your story...</p>
   </div>
 
   <div id="thanksMessage">
-    Thanks for entrusting your memory
+    Thanks for entrusting your memory.
   </div>
 
   <form id="memoryForm">
@@ -172,7 +173,7 @@
           setTimeout(() => {
             thanksMessage.classList.add('visible');
           }, 10);
-        }, 800);
+        }, 300); // ridotto da 800ms a 300ms
 
         setTimeout(() => {
           loadMemories();
