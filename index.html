@@ -23,7 +23,8 @@
     }
 
     .intro {
-      margin-bottom: 6rem;
+      font-weight: 900;
+      margin-bottom: 4rem;
       color: #666;
     }
 
@@ -42,6 +43,11 @@
       border: none;
       border-radius: 4px;
       background-color: #f9f9f9;
+          resize: none;
+    }
+    /* Altezza solo per il textarea */
+    form textarea {
+      height: 9rem;
     }
 
     button {
@@ -52,13 +58,14 @@
       border: none;
       font-family: inherit;
       font-size: 1rem;
-      font-weight: bold;
+      font-weight: normal;
       cursor: pointer;
-      transition: color 0.3s ease;
+      transition: color 0.3s ease, transform 0.2s cubic-bezier(.4,0,.2,1), font-weight 0.2s;
     }
 
     button:hover {
       color: #333;
+      font-weight: bold;
     }
 
     #memoriesContainer {
@@ -139,6 +146,10 @@
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
+      // Dissolvi il bottone al click
+      const button = form.querySelector('button[type="submit"]');
+      button.classList.add('fade-out');
+
       const formData = new FormData(form);
       const data = new URLSearchParams(formData);
 
@@ -198,7 +209,7 @@
         memories.forEach((item) => {
           const el = document.createElement("div");
           el.className = "memory";
-          el.innerHTML = `<regular>${item.message}</regular><br><em>-${item.name || "Anonymous"}</em>`;
+          el.innerHTML = `<regular>${item.message}</regular><br><em style="font-weight:100">-${item.name || "Anonymous"}</em>`;
 
           let region, top = 0, left = 0;
           const margin = 5;
